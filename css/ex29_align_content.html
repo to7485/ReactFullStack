@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="box.css" rel="stylesheet">
+    <style>
+        .flex-demo{
+            display:flex;
+            flex-wrap:wrap;
+            border:2px dashed #000;
+            background : #ecf0f1;
+            width: 100%;
+            max-width: 600px;
+            height : 800px;
+            margin-bottom : 20px;
+        }
+
+        .ac-stretch{
+            align-content : stretch;
+        }
+
+        .ac-flex-start{
+            align-content:flex-start
+        }
+
+        .ac-flex-end{
+            align-content:flex-end
+        }
+
+        .ac-center{
+            align-content:center;
+        }
+
+        .ac-space-between{
+            align-content:space-between;
+        }
+
+        .ac-space-around{
+            align-content:space-around;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>align-content 속성 실습</h1>
+    <h2>stretch(공간을 쭉 늘려서 차지)</h2>
+    <section class="flex-demo ac-stretch">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+    <h2>flex-start</h2>
+    <section class="flex-demo ac-flex-start">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+
+    <h2>flex-end</h2>
+    <section class="flex-demo ac-flex-end">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+
+    <h2>center</h2>
+    <section class="flex-demo ac-center">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+
+    <h2>space-between</h2>
+    <section class="flex-demo ac-space-between">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+    <h2>space-around</h2>
+    <section class="flex-demo ac-space-around">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </section>
+</body>
+</html>
