@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin :0;
+            padding : 0;
+            box-sizing : border-box;
+            /* 내용 + 패딩 + 테두리를 모두 포함한 값으로 취급하게 하는 속성
+            border-box를 쓰고 width : 300px을 하게 되면 300px안에 내용 + 패딩 + 테두리가
+            모두 들어가도록 브라우저가 크기를 계산한다. */
+        }
+        .head,.foot{
+            padding : 16px;
+            text-align:center;
+            background : #f0f2f4;
+        }
+
+        .hero{
+            display : flex;
+            align-items: center;
+            max-width : 1000px;
+            margin : 20px auto;
+            padding : 16px;
+            background : #f7f9fb;
+            border : 1px solid #e5e8eb;
+            border-radius : 10px;
+        }
+
+        .hero-text{
+            flex : 0 0 60%;
+        }
+
+        .hero-text h2{
+            margin-bottom : 8px;
+        }
+
+        .hero-visual{
+            flex : 0 0 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height : 220px;
+            background : #dfe6e9;
+            border-radius : 10px;
+        }
+
+        .features{
+            max-width : 1000px;
+            margin : 0 auto 20px;
+            padding : 16px;
+        }
+
+        .features h2{
+            margin-bottom : 12px;
+        }
+
+        .f-container{
+            display:flex;
+            flex-wrap : wrap;
+            gap : 16px;
+        }
+
+        .feat{
+            flex : 1 1 280px;
+            border : 1px solid #e5e8eb;
+            border-radius : 10px;
+            background: #fff;
+            padding : 16px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="head">
+        <h1>Brand Landing이다.</h1>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2 id="hero-title">간결한 메시지로 주목을 끈다.</h2>
+                <p>핵심 가치와 행동 유도 문구를 짧고 명확하게 배치한다.</p>
+            </div>
+            <div class="hero-visual">
+                <span>640x360 자리다</span>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 id="f-title">핵심 기능이다.</h2>
+            <div class="f-container">
+                <article class="feat">
+                    <h3>간단하다</h3>
+                    <p>짧은 설명이다.</p>
+                </article>
+                <article class="feat">
+                    <h3>빠르다</h3>
+                    <p>짧은 설명이다.</p>
+                </article>
+                <article class="feat">
+                    <h3>확장된다.</h3>
+                    <p>짧은 설명이다.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="foot">
+        <small>&copy; 2025 Split hero이다.</small>
+    </footer>
+</body>
+</html>

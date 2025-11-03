@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- align-self
+     자식요소에게 교차축 정렬의 속성을 개별적으로
+     부여할 수 있는 속성 -->
+    <style>
+        .container{
+            display : flex;
+            /* 자식 요소들의 교차축 방향을 가운데로 정렬하겠다. */
+            align-items : center;
+            border : 2px dashed #333;
+            height : 200px;
+            padding : 10px;
+            gap : 10px;
+        }
+
+        .item{
+            width : 100px;
+            padding : 10px 0;
+            border : 2px solid black;
+            text-align : center;
+        }
+
+        .b{
+            align-self : flex-start;
+        }
+
+        .c{
+            align-self : flex-end;
+        }
+
+        .d{
+            align-self : stretch;
+        }
+
+
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="item a">기본</div>
+        <div class="item b">flex-start</div>
+        <div class="item c">flex-end</div>
+        <div class="item d">stretch</div>
+    </div>
+</body>
+</html>
