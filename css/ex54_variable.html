@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --bg : #f7f8fa;
+            --text : #2c3e50;
+            --brand : #111827;
+            --surface : #fff;
+            --accent : #3498db;
+            --radius : 30px;
+            --space : 20px;
+        }
+        /* 많은 요소에서 변수를 사용할 때
+        변수에 들어있는 값만 바꾸면
+        일괄적으로 바뀌게 되기 때문에 유용하다 */
+
+        *{
+            box-sizing : border-box;
+        }
+
+        body{
+            margin : 0;
+            font-family: sans-serif;
+            /* background 변수로 넣기 --bg */
+            background : var(--bg);
+            /* color도 변수로 넣기 --text */
+            color : var(--text);
+        }
+
+        header{
+            /* background에는 --brand */
+            background : var(--brand);
+            /* padding에는 --space */
+            padding : var(--space);
+            color : white;
+        }
+
+        nav a{
+            color : #cbd5e1;
+            margin-right : 12px;
+        }
+
+        main{
+            padding : calc(var(--space)*2) var(--space);
+        }
+
+        section + section {
+            margin-top : calc(var(--space) * 2);
+        }
+
+        /* 카드를 가로로 배치
+        너비가 좁아지면 내려갈 수 있게
+        갭을 --space만큼
+        주축으로 가운데 정렬하기 */
+        .cards{
+            display : flex;
+            flex-wrap : wrap;
+            gap : var(--space);
+            justify-content: center;
+        }
+        /* 늘어나는 비율 1, 감소하는 비율 1 기본 너비 240px
+        배경색은 --surface, 테두리, 테두리 둥글게 --radius만큼
+        패딩은 --space, 박스 그림자 주기
+        최대 넓이를 360px로 제한하기 */
+        .card{
+            flex : 1 1 240px;
+            background : var(--surface);
+            border : 2px solid #e5e7eb;
+            border-radius : var(--radius);
+            padding : var(--space);
+            box-shadow : 0 2px 6px rgba(0,0,0,0.12);
+            max-width : 360px;
+        }
+
+        .card__title{
+            margin : 0 0 8px;
+        }
+
+        .card__desc{
+            margin : 0 0 var(--space);
+            color : #4b5563;
+        }
+
+        .card__a{
+            display : inline-block;
+            background : var(--accent);
+            color : #fff;
+            padding : 8px 12px;
+            border-radius : 8px;
+            text-decoration : none;
+        }
+
+        footer{
+            padding : var(--space);
+            text-align : center;
+            color : #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="brand">My Site</h1>
+        <nav>
+            <a href="#">홈</a>
+            <a href="#">가이드</a>
+            <a href="#">문의</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 id="intro-title">CSS 변수로 일관된 디자인 만들기</h2>
+            <p>기본 구조에 CSS 변수를 이용한 일관된 디자인 넣기</p>
+        </section>
+
+        <section>
+            <h2 id="cards-title">카드 목록</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3 class="card__title">카드 1</h3>
+                    <p class="card__desc">설명 텍스트다.</p>
+                    <a class="card__a" href="#">자세히</a>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">카드 2</h3>
+                    <p class="card__desc">설명 텍스트다.</p>
+                    <a class="card__a" href="#">자세히</a>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">카드 3</h3>
+                    <p class="card__desc">설명 텍스트다.</p>
+                    <a class="card__a" href="#">자세히</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <small>&copy; 2025 My Site</small>
+    </footer>
+</body>
+</html>
