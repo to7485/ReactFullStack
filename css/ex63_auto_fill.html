@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>auto-fill vs auto-fit 차이 확인</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .container {
+      width: 900px;
+      border: 2px solid #ddd;
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 0 0 12px 0;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-auto-rows: 120px;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .grid>.item {
+      background: #3498db;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+
+    /* 핵심: 최소 150px 확보 + 남은 공간은 1fr로 확장 */
+    .grid.fill {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .grid.fit {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* 시각적으로 빈 트랙 보이게 하는 방법(디버그용) */
+    .grid::before {
+      content: "";
+      display: block;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction : column;
+      gap: 20px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="container">
+      <h2>auto-fill</h2>
+      <div class="grid fill">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <!-- 항목이 2개라서 빈 트랙이 남음 -->
+      </div>
+      <p class="note">컨테이너 너비가 넓고 항목이 적을 때 빈 트랙이 만들어진다(항목이 가운데만 채워짐)</p>
+    </div>
+
+    <div class="container">
+      <h2>auto-fit</h2>
+      <div class="grid fit">
+        <div class="item">A</div>
+        <div class="item">B</div>
+      </div>
+      <p class="note">auto-fit은 빈 트랙을 접어서(없애서) 남은 열이 확장된다</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
