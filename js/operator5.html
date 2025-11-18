@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //논리 연산자의 기본 개념
+        //앞 뒤에 오는 논리형 데이터를 연산하는 기능
+        // && (and) : 앞 뒤로 오는 데이터가 둘 다 true여야 true를 반환
+        // ||(or) : 앞 뒤로 오는 데이터 중 하나라도 true면 true를 반환
+        // !(NOT) : true -> false, false -> true
+
+        // T && T => T
+        // T && F => F
+        // F && T => F
+        // F && F => F
+
+        // T || T => T
+        // T || F => T
+        // F || T => T
+        // F || F => F
+
+        let a = true;
+        let b = false;
+
+        let andResult = a && b;
+        console.log(andResult);
+        let orResult = a || b; //true
+        let notResult = !a;//false
+
+        //논리연산의 단축평가
+        //좌항의 값만으로 결과가 확정되면 우항은 평가하지 않는다.
+
+        let x = 10;
+        let y = 5;
+
+        //AND : 앞이 false면 뒤는 실행하지 않는다.
+        let result1 = x < y && (x+=1) > y;
+        //OR : 앞이 true면 뒤는 실행하지 않는다.
+        let result2 = x > y || (x+=1) > y;
+
+        //피연산자가 boolean이 아닐 때
+        //자바스크립트에서는 true/false 이외의 값도
+        //Truthy / falsy 로 판단한다.
+        //0, '', null, undefined, NaN -> false로 취급한다.
+
+        let l1 = 0;
+        let l2 = "Hello";
+
+        //앞의 값이 falsy면 뒤의 값을 반환한다.
+        let result3 = l1 || l2; //"Hello"
+        console.log(`result3 : ${result3}`);
+        //앞의 값이 truthy면 뒤의 값을 반환한다.
+        let result4 = l2 && l1;
+        console.log(`result4 : ${result4}`);
+
+
+
+    </script>
+</body>
+</html>
