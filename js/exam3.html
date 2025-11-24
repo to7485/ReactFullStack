@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //변수 month에 월(月)값을 하나 저장하고,
+        //해당 월이 몇일까지 있는지 출력하는 코드 작성하기
+        //예를 들어 2월이라면 "2월은 28일 또는 29일까지 있습니다."
+        //4월이라면 "4월은 30일까지 있습니다."
+
+        let month = 3;
+
+        switch(month){
+            case 1:case 3: case 5: case 7: case 8: case 10: case 12:
+                console.log(`${month}월은 31일까지 있습니다.`);
+                break;
+            case 4: case 6: case 9: case 11:
+                console.log(`${month}월은 30일까지 있습니다`);
+                break;
+            case 2:
+                console.log(`${month}월은 28일까지 있습니다.`);
+                break;
+        }
+
+        //score 변수에 점수를 입력받아 등급을 출력하는 코드 작성하기
+        //100~90 : A, 89~80 : B, 79 ~ 70 : C, 69 ~ 60 : D, 그 외 : F
+        //점수가 0 ~ 100 범위를 벗어나면 "유효하지 않은 점수입니다"를 출력하기
+        let score = 75;
+
+        //범위를 비교할 때는 if문이 낫다
+        if(score < 0 || score > 100){
+            console.log("유효하지 않은 점수입니다.");
+        } else if(score >= 90){
+            console.log("A");
+        } else if(score >= 80){
+            console.log("B");
+        } else if(score >= 70){
+            console.log("C");
+        } else if(score >= 60){
+            console.log("D");
+        } else {
+            console.log("F");
+        }
+
+        //menu라는 변수에 메뉴번호를 대입한다.
+        //음료를 선택하면 가격을 출력하는 코드 작성하기
+        //메뉴
+        //1 : 아메리카노 1500원
+        //2 : 라떼 2000원
+        //3 : 녹차 1800원
+
+        let menu = 2;
+
+        switch(menu){
+            case 1:
+                console.log(`아메리카노 1500원`);
+                break;
+            case 2:
+                console.log(`라떼 2000원`);
+                break;
+            case 3:
+                console.log(`녹차 1800원`);
+                break;
+        }
+
+        //hour변수에 0~23 사이의 시간을 대입하고 시간에 따라
+        //인사를 출력하는 코드 작성하기
+        //규칙
+        // 5 ~ 11 : 좋은 아침입니다.
+        // 12 ~ 17 : 좋은 오후입니다.
+        // 18 ~ 21 : 좋은 저녁입니다.
+        // 그외 : 좋은 밤입니다.
+        //범위를 벗어난 값은 "유효하지 않은 시각입니다."
+
+        let hour = 14;
+
+        if(hour < 0 || hour > 23){
+            console.log("유효하지 않은 시각입니다.");
+        } else if(hour >=5 && hour <=11){
+            console.log("좋은 아침입니다.");
+        } else if(hour >=12 && hour <=17){
+            console.log("좋은 저녁입니다.");
+        } else {
+            console.log("좋은 밤입니다.");
+        }
+
+        // year 변수에 연도를 하나 대입한다.
+        //해당 년도가 윤년인지 아닌지를 판별하는 코드 작성하기
+
+        // 4의 배수이면서 100의 배수가 아니면 된다.
+        // 400의 배수이면 윤년이다.
+
+        //윤년이면 -> 윤년입니다.
+        //아니면 평년입니다. 라고 출력하기
+
+        let year = 2024;
+
+        if((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0){
+            console.log(`${year}년은 윤년입니다.`);
+        } else {
+            console.log(`${year}년은 평년입니다.`);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

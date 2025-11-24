@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1 ~ 27까지 숫자 중 짝수의 개수와 홀수의 개수를 각각 출력해주세요
+        let odd = 0; //홀수의 개수를 담기위한 변수
+        let even = 0; //짝수의 개수를 담기 위한 변수
+
+        for(let i = 1; i <= 27; i++){
+            if(i % 2 != 0){
+                odd++;
+            } else {
+                even++;
+            }
+        }
+
+        console.log("짝수의 개수 : " + even);
+        console.log("홀수의 개수 : " + odd);
+
+        //구구단의 조건부 출력
+        //dan 변수에 단을 하나 설정한다.
+        //구구단을 출력하되, 짝수 곱셈만 건너뛰고 홀수 곱셈만 출력한다.
+        //3 x 1 = 3
+        //3 x 3 = 9
+        // ...
+        let dan = 3;
+        for(let i = 1; i<10; i++){
+            if(i % 2 == 0){
+                continue;
+            }
+            console.log(`${dan} x ${i} = ${dan * i}`);
+        }
+
+        //1부터 45까지 3의 배수를 제외하고 합계와 평균을 구하기
+        let sum = 0; //총합을 담을 변수
+        let count = 0; //개수를 담기 위한 변수
+        for(let i = 1; i <46; i++){
+            if(i % 3 === 0){
+                continue;
+            }
+            sum += i; // sum = sum + i
+            count++;
+        }
+
+        let avg = sum / count;
+
+        console.log(`합계 : ${sum}`);
+        console.log(`평균 : ${avg}`);
+
+        //변수 n에 12340를 대입한다.
+        //자릿수를 뒤집은값을 출력하세요
+        //12340 -> 4321
+        //12030 -> 3021
+
+        let n = 1234567890;
+        let reversed = 0; //거꾸로된 숫자를 집어넣을 변수
+
+        //n이 어떤숫자가 들어올지 모르기 때문에 for문보다는
+        //while문 선택하는게 적합하다.
+        while( n > 0){
+            let digit = n % 10;
+            reversed = reversed * 10 + digit; //뒤집어서 누적
+            n = Math.floor(n /10) //맨 뒷자리를 제거
+        }
+
+        console.log(`뒤집은 숫자 : ${reversed}`);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

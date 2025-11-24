@@ -23,6 +23,29 @@
 
         let finalPrice = age < 19 ? ticketPrice * 0.8 : ticketPrice;
 
+        let price = 28000;
+        let isVip = true;
+
+        let isFree = (price >= 30000 || isVip === true);
+
+        console.log(isFree);
+
+        //현재 온도를 설정
+        let temperature = 23;
+
+        let mode = temperature >= 28 ? "에어컨 작동" :
+                   temperature <= 18 ? "난방 작동":
+                   "대기상태";
+        console.log(mode);
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
