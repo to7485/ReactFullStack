@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="handleClick()">클릭</button>
+
+    <button id="btn">클릭2</button>
+
+    <button id="btn2">클릭3</button>
+    <script>
+        //html 요소에 속성을 통해서 이벤트 처리를 하는 방법
+        //HTML코드와 JS코드가 섞여서 유지보수가 힘들다.
+        //함수에 의존한다.
+        function handleClick(){
+            alert("버튼 클릭됨");
+        }
+
+        //dom 속성으로 이벤트 처리를 하는 방식
+        let btn = document.getElementById("btn");
+
+        btn.onclick=handleClick;
+
+        //addEventListenr로 이벤트를 등록하는 방식
+        let btn2 = document.getElementById("btn2");
+
+        //target.addEventListener(type, listener)
+        //type : "click","input","keydown"같은 이벤트 이름
+        //listener : 이벤트가 발생했을 때 실행할 기능(함수)
+        btn2.addEventListener("click",function(){
+            alert("버튼이 클릭되었습니다.")
+        });
+
+    </script>
+</body>
+</html>
