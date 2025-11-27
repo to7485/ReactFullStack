@@ -1,0 +1,89 @@
+JS로 HTML을 조정하기 위해서는
+
+1. 조종하고자 하는 태그를 선택
+let var = document.getElementById(아이디값)
+document.querySelector(css 선택자)
+
+2. 속성값으 조정하거나, style 조정할 수 있다.
+속성값 조정
+대상태그.hasAttribute(속성이름)
+대상태그.setAttribute(속성이름,값)
+대상태그.getAttribute(속성명)
+대상태그.removeAttribute(속성명) 
+
+style 조정
+1. style객체를 이용한 조정
+대상태그.style.
+backgroundColor='red'
+fontSize
+width
+height
+
+<style>
+.클래스명{
+    스타일
+}
+
+</style>
+
+2. classList
+대상태그.classList.add(클래스명)
+대상태그.classList.remove('클래스명')
+대상태그.classList.toggle(클래스명) : 있으면 제거, 없으면 추가
+대상태그.classList.contains(클래스명) : 대상 클래스가 있는지 확인
+대상태그.classList.replace("기존","새") : 기존 클래스를 새 클래스로 교체\\
+
+3. style.cssText
+요소의 모든 인라인 스타일을 문자열 형태로 읽거나 덮어쓰거나 추가할 수 있는 속성
+대상태그.style.cssText = "스타일"
+
+태그의 content부분에 내용 넣기
+
+대상태그.innerText = "안녕하세요"
+- 순수 텍스트만 넣는다.
+- 태그를 넣으면 그대로 출력된다.
+
+
+대상태그.textContent = "안녕하세요"
+- innerText와 유사하지만 DOM 성능이 더 좋다.
+
+대상태그.innerHTML = "<strong>강조된 텍스트</strong>"
+- html 태그가 실제로 적용된다.
+- UI를 동적으로 만들 때 사용
+
+<input value="내용">
+
+input.value = "홍길동"
+- input태그, textArea
+
+이벤트
+브라우저랑 상호작용하는 모든 행위
+
+마우스
+클릭, 더블클릭, 마우스 올림, 내림, .....
+
+키이벤트
+키를 눌렀을 때
+키를 땠을 때
+키를 누르고 있을 때
+
+폼 이벤트
+focus 요소로 포커스가 이동되었을때
+blur 요소에 포커스가 벗어났을 때
+change 요소에 값이 변경되었을 때
+
+이벤트가 발생했을 때 어떤 행위를 할 건지 정하는걸 이벤트 처리라고 한다.
+
+이벤트리스너 메서드 사용하기
+
+대상태그.addEventListener(이벤트 타입,이벤트 처리함수)
+
+
+
+
+
+
+
+
+
+

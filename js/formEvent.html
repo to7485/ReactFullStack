@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>폼 이벤트</h2>
+    <form id="myForm">
+        <label>
+            이름:
+            <input id="nameInput" type="text" name="name">
+        </label>
+        <br><br>
+        <label>
+            과일 선택:
+            <select id="fruitSelect" name="fruit">
+                <option value="">선택하세요</option>
+                <option value="apple">사과</option>
+                <option value="banana">바나나</option>
+            </select>
+        </label>
+        <br><br>
+        <textarea id="memo" rows="3" cols="30">텍스트를 드래그해보세요</textarea>
+        <br><br>
+        <button type="submit">전송</button>
+        <button type="reset">리셋</button>
+    </form>
+
+    <p id="msg"></p>
+    <script>
+        const nameInput = document.querySelector("#nameInput");
+        const fruitSelect = document.querySelector("#fruitSelect");
+        const memo = document.querySelector("#memo")
+        const form = document.querySelector("#myForm");
+        const msg = document.querySelector("#msg");
+
+        nameInput.addEventListener("focus",function(){
+            msg.textContent="이름 입력창에 포커스가 갔다."
+        })
+
+        nameInput.addEventListener("blur",function(){
+            msg.textContent="이름 입력창에서 포커스가 벗어났다."
+        })
+
+        //change : 값이 바뀐 다음, 포커스를 잃을 때 발생
+        fruitSelect.addEventListener("change",function(){
+            msg.textContent=`과일을 ${fruitSelect.value}로 변경했다.`
+        })
+
+        form.addEventListener("submit",function(e){
+            e.preventDefault();//실제로 서버로 보내는 동작을 막는다.
+            msg.textContent = "submit 이벤트가 발생했다."
+        })
+
+        form.addEventListener("reset",function(e){
+            msg.textContent = "reset 이벤트가 발생해서 폼 값이 초기화 되었다."
+        })
+
+        //input/textarea에서 텍스트를 드래그로 선택했을 때 
+        memo.addEventListener("select",function(){
+            const start = memo.selectionStart;
+            const end = memo.selectionEnd;
+            const selected = memo.value.substring(start,end);
+            msg.textContent = `select 이벤트 발생, 선택한 텍스트 "${selected}"다`;
+        })
+
+
+    </script>
+</body>
+</html>
