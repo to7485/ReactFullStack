@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="padding: 20px; background: lightblue">
+        Parent
+        <button id="child">Child Button</button>
+    </div>
+    <script>
+        const parent = document.querySelector("#parent");
+        const child = document.querySelector("#child");
+        //div를 클릭했을 때 "부모 div클릭 이벤트 발생"
+        parent.addEventListener("click",function(){
+            console.log("부모 div 클릭 이벤트 발생")
+        })
+
+        //버튼을 클릭했을 때 "버튼 클릭 이벤트 발생"
+        //이벤트 처리 함수의 매개변수로 발생한 이벤트의 정보를 받을 수 있다.
+        //매개변수의 이름은 아무거나 작성하셔도 문제는 안된다.
+        child.addEventListener("click",function(event){
+            console.log("버튼 클릭 이벤트 발생");
+            event.stopPropagation();//여기서 상위로 전파를 막는다.
+        })
+
+        //실무에서는 팝업 안에있는 버튼 클릭 시, 배경 영역의 클릭 이벤트가 같이 실행되면
+        //안되는 경우에 자주 사용한다.
+        //버튼 안에 또 버튼이 있는 경우
+
+
+
+    </script>
+</body>
+</html>

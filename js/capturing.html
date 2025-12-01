@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="padding: 20px; background: lightblue">
+        Parent
+        <button id="child">Child Button</button>
+    </div>
+    <script>
+        const parent = document.querySelector("#parent");
+        const child = document.querySelector("#child");
+
+        //div를 클릭했을 때 "부모 div클릭 이벤트 발생"
+        parent.addEventListener(
+            "click",
+            function(){
+                console.log("부모 div 클릭 이벤트 발생")
+            },
+            true //캡처링 단계에서 실행이 된다.
+        )
+
+
+        child.addEventListener("click",function(event){
+            console.log("버튼 클릭 이벤트 발생");
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>
