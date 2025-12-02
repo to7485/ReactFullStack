@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {
+            name:'홍길동',
+            age: 25,
+        }
+
+        //name,age,country를 분해할당으로 꺼낸다.
+        //country값이 없으면 기본값 "korea"가 출력되도록 한다.
+        const {name,age,country="korea"} = user;
+
+        const fruits1 = ["사과","바나나"];
+        const fruits2 = ["포도","키위"];
+
+        //스프레드 연산자를 이용해서 하나의 배열 allFruits에 
+        //[["사과","바나나","포도","키위"] 형태가 나오도록 작성하기
+
+        const allFruits = [...fruits1, ...fruits2];
+
+
+
+
+    </script>
+</body>
+</html>

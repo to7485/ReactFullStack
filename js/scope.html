@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var : 함수스코프, 중복선언 가능하다
+        //let : 블록스코프, 중복선언 불가
+        //const : 블록스코프,중복선언 불가, 재할당 불가
+
+        if(true){
+            //var x = 10;
+        }
+
+        //console.log(x);//블록 밖에서도 보인다.
+
+        //중복선언이 가능한게 문제
+        var a = 1;
+        var a = 2; //에러가 나지 않음
+
+        //함수스코프
+        function printA(){
+            var z = 10;
+        }
+
+        //console.log(z);//z is not defined
+        //let,const
+        //블록스코프
+        //{}로 감싼 블록 안에서만 유효하다.
+        if(true){
+            let x = 10;
+            const y = 20;
+        }
+        //console.log(x);//에러 x is not defined
+        //console.log(y);
+
+        //안쪽 스코프에서 같은 이름의 변수를 새로 만들면
+        //바깥쪽 변수를 가리는 효과가 있다.
+        let message = "밖이다";
+
+        function test(){
+            let message = "안이다";
+            console.log(message);
+        }
+        test();//안이다.
+        console.log("함수 밖:",message);
+    </script>
+</body>
+</html>

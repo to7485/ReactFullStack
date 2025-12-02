@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트 엔진이 내부적으로 선언을 먼저했다.
+        //var a;
+        console.log(a);//undefined
+        var a = 10;
+        console.log(a);
+
+        //console.log(x);//Cannot access 'x' before initialization
+        //let x = 10;
+
+        //console.log(y);
+        //const y = 20;//Cannot access 'y' before initialization
+
+        //let,const도 호이스팅이 일어나기는 하나
+        //TDZ(Temporal Dead Zone, 일시적 사각지대)라는 구간이 생긴다.
+        //let이나 const로 선언된 변수는 선언문에 도달하기 전까지는 절대
+        //사용할 수 없는 구간
+
+        //함수 선언식 방식은 위에서 호출해도 정상 동작한다.
+        sayHello();
+
+        //함수의 호이스팅
+        //함수의 선언식이 통째로 호이스팅이 되서 그렇다.
+        // function sayHello(){
+        //     console.log("안녕하세요");
+        // }
+
+        //함수 표현식은 위에서 호출할 수 없다.
+        //변수선언 + 값의 할당
+        //호이스팅 시점에서는 변수는 존재하지만 값는 없는 상태
+        //const sayHello;
+        const sayHello = function(){
+            console.log("안녕하세요");
+        }
+        
+    </script>
+</body>
+</html>

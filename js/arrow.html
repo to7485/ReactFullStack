@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const double = (x) => {return x * 2};
+
+        //중괄호가 없으면 결과가 자동으로 return된다.
+        const doubleShort = x => x * 2;
+
+        //매개변수가 없으면 소괄호를 무조건 써야 한다.
+        const getRandom = () => Math.random();
+
+        //객체 리터럴을 반환할 때 객체를 소괄호로 감싸야 한다.
+        const makeUser = (name,age) => ({name:name,age:age})
+
+        //단축 프로퍼티
+        //key와 value가 동일한 변수명일 때 단축이 가능하다.
+        const makeUserShort = (name,age) => ({name,age});
+
+        //this : 객체 자기 자신
+        const user = {
+            name:'홍길동',
+            // sayHello:function(){
+            //     console.log(`안녕 나는 ${this.name}이다`);
+            // }
+            sayHello : () => {
+                console.log(`안녕 나는 ${this.name}이다`);
+            }
+        }
+
+        user.sayHello();
+
+        //메서드 부분에서는 일반 function을 쓰는것을 추천
+        //나머지 부분에서는 화살표함수를 사용하는것이 편하다.
+
+        //화살표함수와 arguments
+        //일반 함수는 내부에서 arguments라는 유사 배열을 쓸 수 있다.
+        function normalFn(){
+            console.log(arguments);//전달된 모든 인자가 들어있다.
+        }
+
+        normalFn(1,2,3);
+
+        //화살표함수는 arguments를 가지지 않는다.
+
+        // const arrowFn = () => {
+        //     console.log(arguments);
+        // }
+
+        // arrowFn(1,2,3);
+
+        //대신 나머지 매개변수를 주로 쓴다.
+        //...매개변수
+        const sum = (...nums) => {
+            return nums.reduce((acc,cur) => acc+cur,0);
+        }
+
+        console.log(sum(1,2,3,4));
+
+        //화살표 함수를 사용하기 좋은곳
+        //1. 콜백함수 : 어떤 함수가 실행된 다음에 실행되는 함수
+        //배열에서의 map,filter,reduce함수에 사용되는 함수
+        //2. 이벤트 처리에서 사용
+
+        //일반함수를 화살표 함수로 바꿔보기
+        // function greet(name){
+        //     return "안녕, " +name +"이다";
+        // }
+
+        const greet = name => "안녕, " +name+"이다.";
+
+        const nums = [1,2,3,4,5,6,7];
+        //홀수만 고르고
+        //홀수들을 제곱한 새로운 배열 만들기
+        //filter, map을 메서드 체이닝으로 만들기
+        const newNums = nums.filter(x => x % 2 != 0).map(x => x* x);
+        console.log(newNums);
+
+        //원하는 숫자를 여러개 넣으면 그 숫자들의 합을 반환하는 total 화살표 함수 만들기
+        const total = (...nums) => nums.reduce((acc,cur) => acc+ cur,0);
+
+        console.log(total(1,2,3));
+
+
+    </script>
+</body>
+</html>
