@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //콜백함수만으로 비동기처리를 하다보면 콜백 지옥 문제가 생긴다.
+        //들여쓰기가 계속 깊어지고, 에러 처리도 어렵고, 코드의 흐름이
+        //눈에 잘 들어오지도 않는다.
+        setTimeout(()=>{
+            console.log("1번 읽기 완료");
+            setTimeout(() => {
+                console.log("2번 읽기 완료");
+                setTimeout(() => {
+                    console.log("3번 읽기 완료");
+                },1000)
+            },1000)
+        },1000);
+
+        //ES6에서 Promise가 등장했다.
+        //Promise는 비동기 코드를 동기 흐름처럼 읽히게 만드는 객체
+        //지금은 결과를 모르는 작업인데, 나중에 성공하거나 실패하면
+        //알려줄게 라고 약속(Promise)하는 객체이다.
+
+        //Promise는 생성할 때 반드시 실행 함수를 넣는다.
+        //이 함수는 resolve(성공),reject(실패) 두 가지 매개변수를 가진다.
+        const promise = new Promise((resolve,reject) => {
+            //비동기 작업을 수행
+            if(성공조건){
+                resolve(결과값); //성공시 호출되는 함수
+            } else{
+                reject(에러메시지); //실패시 호출되는 함수
+            }
+        });
+
+        //Promise의 상태는 3가지이다.
+        //pending : 대기중
+        //fulfilled : resolve가 호출됨
+        //rejected : reject가 호출됨
+
+        const myPromise = new Promise((resolve,reject) => {
+            resolve("성공이다.");
+        });
+        //promise의 상태가 pending -> fulfilled로 바뀐다.
+        //them의 첫번째 콜백으로 값이 전달된다.
+        myPromise.then((msg) => {
+            console.log(msg);
+        }).catch(() => {})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
