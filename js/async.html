@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //함수앞에 async 키워드를 붙이면 무조건 Promise객체를
+        //반환하는 함수가 된다.
+
+        async function getData(){
+            return "안녕"; //자동으로 Promise.resolve("안녕")이 된다.
+        }
+
+        const p = getData();
+        console.log(p);
+
+        //함수가 정상적으로 종료되면 Promise.resolve(값)으로 처리된다.
+
+        //async함수에서 에러가 발생하거나 throw하면 Promise.reject가 된다.
+        async function willFail(){
+            throw new Error("문제가 발생했습니다.");
+        }
+
+        willFail()
+            .then(() => {
+                console.log("성공했습니까?")
+            })
+            .catch(err => {
+                console.log("에러 잡힘 : ",err.message);
+            })
+    </script>
+</body>
+</html>

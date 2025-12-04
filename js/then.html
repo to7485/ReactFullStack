@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p = new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve("데이터 로드 완료");
+            },2000);
+        });
+
+        p.then(msg => {
+            console.log(msg); 
+        })
+
+        //.then()메서드는 메서드 체이닝으로 이어붙일 수 있다.
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(1);
+            },1000);
+        })
+
+        promise.then(num => {
+            console.log("1차결과 : ",num);
+            return num+1;
+        })
+        .then(num => {
+            console.log("2차결과 : ", num);
+            return num * 3;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //await는 "Promise가 끝날 때까지 잠깐 멈추고 결과를 꺼내온다."
+        //2초 뒤에 데이터를 반환하는 Promise 함수
+        function loadData(){
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve("데이터 로드 완료");
+                },2000);
+            })
+        }
+
+        async function run(){
+            console.log("데이터 요청중...");
+            const result = await loadData();//Promise가 끝날 때까지 여기서 잠시 멈춘다.
+            console.log("결과 : ", result);
+        }
+
+        run();
+
+        //await의 특징
+        //Promise를 기다리고 그 결과를 변수에 담아준다.
+        //비동기 함수지만 코드가 위에서 아래로 쭉 읽히는 느낌이 난다.
+        //await은 반드시 async 함수 안에서만 쓸 수 있다.
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
