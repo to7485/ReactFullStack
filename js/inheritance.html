@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //현실세계의 상속처럼 js에서도 부모객체의 개념을 물려받아 사용할 수 있다.
+        //부모쪽에서는 포괄적인 개념, 공통적인 개념
+        //자식쪽에서는 구체적인 개념, 개별적인 개념
+        //사람
+        //학생
+        // 학생은 사람의 기능을 그대로 가지고 + 자기의 기능을 더한다.
+
+        //부모역할
+        // const person = {
+        //     breathe(){
+        //         console.log("숨을 쉰다.")
+        //     }
+        // }
+
+        //자식역할
+        // const student = {
+        //     study(){
+        //         console.log("공부한다");
+        //     }
+        // }
+
+        //자바스크립트는 객체끼리 직접 연결해서 물려받는(프로토타입 기반 상속)을 쓴다.
+        //학생이 사람을 상속한다 -> 학생 객체의 프로토타입을 사람 객체로 연결한다.
+        //프로토타입 연결 덕분에 내 객체에 없는 속성을 프로토타입 체인을 타고
+        //부모를 찾아가서 쓰는 구조가 된다.
+
+        //1. Object.create(부모객체)
+        //새로운 객체를 만들고, 그 객체의 프로토타입을 person으로 설정한다.
+
+        // var student = Object.create(person);
+
+        // student.study = function(){ //프로퍼티로 메서드 추가
+        //     console.log("공부한다");
+        // }
+
+        // student.breathe();
+        // student.study();
+
+        //2. 생성자 함수 + 프로토타입
+        //옛날 방식임
+        // function Person(name){
+        //     this.name = name;
+        // }
+
+        // Person.prototype.breathe = function(){
+        //     console.log(`${this.name}이(가) 숨을 쉰다.`);
+        // }
+
+        //클래스 형식
+        //생성자 함수 + prototype을 보기좋게 묶어놓으면 어떨까?
+
+        class Person{ //Person이라는 이름으로 클래스를 선언(내부적으로는 Person이라는 함수가 하나 생긴다고 생각하면 된다.)
+
+            //이 클래스에서 객체가 처음 만들어질 때 실행되는 함수
+            //new Person("영희")를 하면 이 constructor가 자동으로 호출된다.
+            constructor(name){
+                this.name = name;
+            }
+
+            //클래스 안에 적은 함수는 전부 프로토타입 메서드가 된다.
+            //Person.prototype.introduct = function(){...}과 같다.
+            introduce(){
+                console.log(`안녕하세요, 저는 ${this.name}입니다.`);
+            }
+        }
+
+        var v1 = new Person("영희");
+
+        class Student extends Person{
+            constructor(name,major){
+                super(name);//super() : 자식 클래스의 constructor에서 부모 클래스의 constructor를 호출하는 키워드
+                this.major = major;
+            }
+
+            //같은 이름을 쓰고싶으나 다른 내용을 갖고싶을 때
+            //오버라이딩
+            introduce(){
+                console.log(`제 전공은 ${this.major}입니다`);
+            }
+
+        }
+
+        var s1 = new Student("철수","컴공");
+        s1.introduce();
+
+        
+    </script>
+</body>
+</html>

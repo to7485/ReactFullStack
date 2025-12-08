@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jsonplaceholder</h1>
+    <button id="loadPostBtn">게시글 1개 불러오기</button>
+    <h2>결과</h2>
+    <div id="result"></div>
+
+    <hr>
+    <h2>게시글 5개 목록 불러오기</h2>
+    <button id="loadPostsBtn">게시글 5개 불러오기</button>
+    <ul id="postsList"></ul>
+
+    <script>
+        //가상의 서버역할 -> jsonplaceholder
+        //요청 주소 -> 'https://jsonplaceholder.typicode.com/posts/1'
+        const loadPostBtn = document.querySelector("#loadPostBtn");
+        const resultDiv = document.querySelector("#result");
+        //버튼을 눌렀을 때 jsonplaceholder에게 게시글 1건을 달라고 요청하여
+        loadPostBtn.addEventListener("click",() => {
+            fetch('https://jsonplaceholder.typicode.com/posts/1')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+
+                    resultDiv.innerHTML = `
+                    <p><strong>ID:</strong>${data.id}</p>
+                    <p><strong>제목:</strong>${data.title}</p>
+                    <p><strong>내용:</strong>${data.body}</p>
+                `;
+            })
+        })
+        //json()메서드가 parse()와 같은 역할을 한다.
+        //ID : xxx
+        //제목 : xxx
+        //내용 : xxx
+        //형태로 출력하기
+
+        //버튼을 눌렀을 때 게시글 5개의 제목만 리스트의 li로 넣기
+        //요청주소 https://jsonplaceholder.typicode.com/posts?_limit=5
+
+        const loadPostsBtn = document.querySelector("#loadPostsBtn");
+        const postsList = document.querySelector("#postsList");
+
+        loadPostsBtn.addEventListener("click",() => {
+            fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+                .then(res => res.json())
+                .then(posts => {
+                    
+                    postsList.innerHTML = "";
+
+                    posts.forEach(post => {
+                        console.log(post.title);
+                        const li = document.createElement("li");
+                        li.textContent = post.title;
+                        postsList.appendChild(li);
+                    })
+                })
+        })
+
+
+
+
+
+
+    </script>
+</body>
+</html>
