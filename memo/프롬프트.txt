@@ -1,0 +1,440 @@
+1번 예시 정답
+class Student {
+   String name;
+   int age;
+   String major;
+
+   Student(String name, int age, String major) {
+       this.name = name;
+       this.age = age;
+       this.major = major;
+   }
+
+   void printInfo() {
+       System.out.println("이름: " + name + ", 나이: " + age + ", 전공: " + major);
+   }
+}
+
+public class Main1 {
+   public static void main(String[] args) {
+       Student s = new Student("홍길동", 20, "컴퓨터공학");
+       s.printInfo();
+   }
+}
+
+2번 예시 정답
+class Calculator {
+   int add(int a, int b) {
+       return a + b;
+   }
+
+   int subtract(int a, int b) {
+       return a - b;
+   }
+
+   int multiply(int a, int b) {
+       return a * b;
+   }
+
+   double divide(int a, int b) {
+       if (b == 0) {
+           return 0;
+       }
+       return (double) a / b;
+   }
+}
+
+public class Main2 {
+   public static void main(String[] args) {
+       Calculator c = new Calculator();
+       System.out.println(c.add(10, 5));
+       System.out.println(c.subtract(10, 5));
+       System.out.println(c.multiply(10, 5));
+       System.out.println(c.divide(10, 5));
+   }
+}
+
+3번 예시 정답
+class Point {
+   int x;
+   int y;
+
+   Point() {
+       this.x = 0;
+       this.y = 0;
+   }
+
+   Point(int x, int y) {
+       this.x = x;
+       this.y = y;
+   }
+
+   void printPoint() {
+       System.out.println("(x=" + x + ", y=" + y + ")");
+   }
+}
+
+public class Main3 {
+   public static void main(String[] args) {
+       Point p1 = new Point();
+       Point p2 = new Point(3, 5);
+
+       p1.printPoint();
+       p2.printPoint();
+   }
+}
+
+4번 예시 정답
+class Printer {
+   void print(String message) {
+       System.out.println(message);
+   }
+
+   void print(int value) {
+       System.out.println("정수: " + value);
+   }
+
+   void print(double value) {
+       System.out.println("실수: " + value);
+   }
+}
+
+public class Main4 {
+   public static void main(String[] args) {
+       Printer p = new Printer();
+       p.print("안녕하세요");
+       p.print(10);
+       p.print(3.14);
+   }
+}
+
+5번 예시 정답
+class Person {
+   String name;
+   int age;
+
+   Person(String name, int age) {
+       this.name = name;
+       this.age = age;
+   }
+
+   void introduce() {
+       System.out.println("안녕하세요, 저는 " + name + "이고 " + age + "살입니다");
+   }
+}
+
+class Student2 extends Person {
+   String major;
+
+   Student2(String name, int age, String major) {
+       super(name, age);
+       this.major = major;
+   }
+
+   @Override
+   void introduce() {
+       System.out.println("안녕하세요, 저는 " + name + "이고 " + age +
+               "살, 전공은 " + major + "입니다");
+   }
+}
+
+public class Main5 {
+   public static void main(String[] args) {
+       Student2 s = new Student2("홍길동", 20, "컴퓨터공학");
+       s.introduce();
+   }
+}
+
+6번 예시 정답
+class Animal {
+   void sound() {
+       System.out.println("동물이 소리를 냅니다");
+   }
+}
+
+class Dog extends Animal {
+   @Override
+   void sound() {
+       System.out.println("멍멍");
+   }
+}
+
+class Cat extends Animal {
+   @Override
+   void sound() {
+       System.out.println("야옹");
+   }
+}
+
+public class Main6 {
+   public static void main(String[] args) {
+       Animal[] animals = new Animal[3];
+       animals[0] = new Animal();
+       animals[1] = new Dog();
+       animals[2] = new Cat();
+
+       for (Animal a : animals) {
+           a.sound();
+       }
+   }
+}
+
+7번 예시 정답
+abstract class Shape {
+   abstract double area();
+}
+
+class Rectangle extends Shape {
+   double width;
+   double height;
+
+   Rectangle(double width, double height) {
+       this.width = width;
+       this.height = height;
+   }
+
+   @Override
+   double area() {
+       return width * height;
+   }
+}
+
+class Circle extends Shape {
+   double radius;
+
+   Circle(double radius) {
+       this.radius = radius;
+   }
+
+   @Override
+   double area() {
+       return 3.14 * radius * radius;
+   }
+}
+
+public class Main7 {
+   public static void main(String[] args) {
+       Shape[] shapes = new Shape[2];
+       shapes[0] = new Rectangle(4, 5);
+       shapes[1] = new Circle(3);
+
+       for (Shape s : shapes) {
+           System.out.println("넓이: " + s.area());
+       }
+   }
+}
+
+8번 예시 정답
+interface Movable {
+   void move(int x, int y);
+}
+
+class Car implements Movable {
+   int x;
+   int y;
+
+   Car(int x, int y) {
+       this.x = x;
+       this.y = y;
+   }
+
+   @Override
+   public void move(int x, int y) {
+       this.x = x;
+       this.y = y;
+       System.out.println("자동차가 (" + x + ", " + y + ") 위치로 이동했습니다");
+   }
+}
+
+public class Main8 {
+   public static void main(String[] args) {
+       Movable m = new Car(0, 0);
+       m.move(10, 20);
+   }
+}
+
+9번 예시 정답
+interface Printable {
+   void print(String message);
+}
+
+class ConsolePrinter implements Printable {
+   @Override
+   public void print(String message) {
+       System.out.println("콘솔 출력: " + message);
+   }
+}
+
+class FilePrinter implements Printable {
+   @Override
+   public void print(String message) {
+       System.out.println("파일에 출력: " + message);
+   }
+}
+
+public class Main9 {
+   public static void main(String[] args) {
+       Printable[] printers = new Printable[2];
+       printers[0] = new ConsolePrinter();
+       printers[1] = new FilePrinter();
+
+       for (Printable p : printers) {
+           p.print("Hello");
+       }
+   }
+}
+
+10번 예시 정답
+class BankAccount {
+   String owner;
+   int balance;
+
+   BankAccount(String owner, int balance) {
+       this.owner = owner;
+       this.balance = balance;
+   }
+
+   void deposit(int amount) {
+       balance += amount;
+       System.out.println(amount + "원 입금, 현재 잔액: " + balance);
+   }
+
+   void withdraw(int amount) {
+       if (balance >= amount) {
+           balance -= amount;
+           System.out.println(amount + "원 출금, 현재 잔액: " + balance);
+       } else {
+           System.out.println("잔액 부족");
+       }
+   }
+}
+
+class SavingsAccount extends BankAccount {
+
+   SavingsAccount(String owner, int balance) {
+       super(owner, balance);
+   }
+
+   @Override
+   void withdraw(int amount) {
+       int max = balance / 2;
+       if (amount > max) {
+           System.out.println("적금 계좌는 한번에 잔액의 50%만 출금 가능합니다");
+           return;
+       }
+       super.withdraw(amount);
+   }
+}
+
+public class Main10 {
+   public static void main(String[] args) {
+       SavingsAccount acc = new SavingsAccount("홍길동", 100000);
+       acc.withdraw(30000);
+       System.out.println("현재 잔액: " + acc.balance);
+       acc.withdraw(80000);
+       System.out.println("현재 잔액: " + acc.balance);
+   }
+}
+
+1번. 클래스/객체 기본 구현 – Student (10점)
+평가 요소	배점
+필드 3개(name, age, major) 정확히 선언	2점
+생성자에서 모든 필드 초기화	3점
+printInfo() 구현	3점
+main에서 객체 생성 후 printInfo() 호출	2점
+감점 기준
+
+필드명 오타: -1
+출력 형식 달라도 구조만 맞으면 정답
+2번. 메서드 구현 – Calculator (10점)
+평가 요소	배점
+add / subtract / multiply 메서드 구현	4점 (각 1.3점)
+divide 메서드 구현(0일 때 0 반환 포함)	3점
+main에서 4개 메서드 전부 호출	3점
+감점 기준
+
+divide에서 0 체크 누락: -2점
+반환값 없이 print만 하면 -3점
+3번. 생성자 오버로딩 – Point (10점)
+평가 요소	배점
+기본 생성자에서 0,0 초기화	3점
+매개변수 있는 생성자 구현	3점
+printPoint() 구현	2점
+main에서 두 객체 생성 후 호출	2점
+감점 기준
+
+this 사용 여부는 상관 없음
+출력 형식은 유연하게 인정
+4번. 메서드 오버로딩 – Printer (10점)
+평가 요소	배점
+print(String) 구현	2점
+print(int) 구현	2점
+print(double) 구현	2점
+오버로딩 적용 여부(동일 메서드명)	2점
+main에서 3개 모두 호출	2점
+감점 기준
+
+메서드 이름이 다르면 오버로딩 X → -4점
+5번. 상속 – Person/Student (10점)
+평가 요소	배점
+Person 클래스(필드, 생성자, introduce)	3점
+Student 클래스 상속 선언 extends Person	2점
+오버라이딩된 introduce() 작성	3점
+main에서 객체 생성 및 호출	2점
+감점 기준
+
+super(name, age) 누락: -1점
+부모 introduce 호출 여부는 자유
+6번. 오버라이딩·다형성 – Animal (10점)
+평가 요소	배점
+Animal.sound() 작성	2점
+Dog·Cat 클래스 각각 오버라이딩	4점 (각 2점)
+Animal 배열 생성 및 객체 저장	2점
+향상된 for문으로 sound() 호출	2점
+감점 기준
+
+일반 for 사용은 감점 없음
+배열 대신 List 사용 시 +0점(배운 내용 아님)
+7번. 추상 클래스 – Shape (10점)
+평가 요소	배점
+Shape 추상 클래스 및 abstract 메서드 선언	3점
+Rectangle 생성자 및 area 구현	3점
+Circle 생성자 및 area 구현	3점
+main에서 배열 생성 및 출력	1점
+감점 기준
+
+area()를 abstract로 안 만들면 -2점
+8번. 인터페이스 – Movable (10점)
+평가 요소	배점
+Movable 인터페이스 선언	2점
+Car 클래스에서 implements 사용	2점
+move() 구현 및 위치 변경	3점
+main에서 Movable 타입으로 실행	3점
+감점 기준
+
+인터페이스 메서드 접근제어 변경 → 감점 없음
+9번. 인터페이스·다형성 – Printable (10점)
+평가 요소	배점
+Printable 인터페이스 정의	2점
+ConsolePrinter 구현	2점
+FilePrinter 구현	2점
+Printable 배열 생성	2점
+반복문을 통한 출력 수행	2점
+감점 기준
+
+배열 대신 List 사용 가능, 감점 없음
+print 메시지 형식은 유연하게 인정
+10번. 상속 + 오버라이딩 – BankAccount (10점)
+평가 요소	배점
+BankAccount 필드·생성자·메서드 3종 구현	4점
+SavingsAccount에서 withdraw 오버라이딩	3점
+출금 50% 제한 로직 정확히 구현	2점
+main에서 두 번 출금 및 잔액 출력	1점
+감점 기준
+
+super.withdraw 미사용: -1점
+조건식 잘못 구현: -2점
+
+파일을 읽어서 채점하고 피드백을 작성해줘.
+5번 문제는 exam2에 작성되어 있어도 상관없다.
+마지막에는 총점을 작성해줘

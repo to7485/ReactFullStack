@@ -1,0 +1,21 @@
+npm install
+ㄴ package.json에 정의된 필요한 라이브러리들을 실제로 설치
+- react
+- react-dom
+- vite
+- 기타 개발에 필요한 패키지들
+
+패키지들이 node_modules 폴더안에 실제로 설치가 된다.
+
+
+JSX는 HTML과 매우 유사한 문법을 사용한다.
+컴포넌트의 UI구조를 정의할 때 HTML요소와 속성의 형태를 그대로 유지할 수 있다.
+
+const element = <h1>Hello, world!</h1>
+
+
+
+
+
+
+
