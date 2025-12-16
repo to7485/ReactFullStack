@@ -46,6 +46,26 @@ vite 개발 서버가 뜨게 되고, 브라우저 주소를 반환받는다.
 (localhost:5173)
 ↓
 브라우저는 index.html을 먼저 받는다.
+↓
+Main.jsx에서
+document.getElementById('root')를 통해서 <div>를 찾는다.
+createRoot()를 통해 <div>를 React가 관리하는 객체로 만든다.
+render()메서드를 통해서 App 컴포넌트를 브라우저에 출력한다.
+↓
+App 컴포넌트가 반환한 JSX안에 다른 컴포넌트가 있다면, React는 그 컴포넌트들도 계속 호출을 한다.
+↓
+컴포넌트 트리를 따라서 내려가면서 실행
+↓
+Virtual DOM에서 비교 후, 실제 DOM을 업데이트한다.
+
+
+<StrictMode> : 코드를 테스트
+선언되어 있으면 개발모드에서 일부 로직이 한 번 더 실행되는 것 처럼 보일 수 있다.
+
+
+
+
+
 
 
 

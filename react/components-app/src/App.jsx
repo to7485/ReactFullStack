@@ -7,6 +7,7 @@ import Counter from './components/Counter'
 import Student from './components/Student'
 import Box from './components/Box'
 import CardList from './components/CardList'
+import Card from './components/Card'
 
 function App() {
   const totalCount = 3;
@@ -28,7 +29,11 @@ function App() {
         backgroundColor:"#f9f9f9",
         borderRadius : "8px"
       }} /> */}
-      <CardList />
+      {/* <CardList /> */}
+      <Card>
+        <h1>공지사항</h1>
+        <p>오늘은 휴강입니다.</p>
+      </Card>
     </>
   )
 }
