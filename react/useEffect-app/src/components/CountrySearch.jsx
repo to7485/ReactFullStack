@@ -124,6 +124,8 @@ export default function CountrySearch() {
           <p style={{ color: "#6b7280" }}>검색 결과가 없다</p>
         )}
 
+        {/* 원래 화살표 함수는 const f = () => {} 가 맞음
+        const f = () => { return () } -> const f = () => ()*/}
         {countries.map((c) => (
           <div key={(c.cca2 ?? "") + (c.name?.common ?? "")} style={item}>
             <img

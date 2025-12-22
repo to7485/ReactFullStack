@@ -10,6 +10,7 @@ import UserProfile from './components/UserProfile.jsx'
 import KeywordWatcher from './components/KeywordWatcher.jsx'
 import Timer from './components/Timer.jsx'
 import CountrySearch from './components/CountrySearch.jsx'
+import NoticeSlider from './components/Notice.jsx'
 function App() {
     
 
@@ -31,7 +32,9 @@ function App() {
       {/* 타이머 띄우기 */}
       {/* {showTimer && <Timer />} */} 
 
-      <CountrySearch />
+      {/* <CountrySearch /> */}
+
+      <NoticeSlider />
 
     </>
   )

@@ -1,0 +1,119 @@
+강의실 컴퓨터 포맷돼서 필요한거 다시 설치해야 합니다.
+1. vscode
+2. node
+
+node의 설치가 우선되야함
+ㄴ npm(node package manager)
+
+react -> js 라이브러리
+
+react 프로젝트 생성 -> vite라는 빌드 툴을 활용
+ㄴ npm create vite@latest 프로젝트명 -- --template react
+
+react는 index.html파일을 1개만 가지고 있다.
+<div id="root"></div>
+<link ></link>
+
+package.json -> 필요한 라이브러리(의존성)를 명시
+
+npm install -> package.json에 명시되어있는 라이브러리를 실제로 설치
+
+react는 화면을 만들고, 이벤트 처리를 하고, 서버에 요청을 하는 기능을 한다!
+
+화면을 잘 깨 쪼개서 함수형 컴포넌트 형태로 관리
+컴포넌트로 나누는 규칙
+1. 많이 사용을 하냐
+2. 유지보수가 편리하냐
+
+자바스크립트 함수 문법을 이용해서 컴포넌트를 설계
+function 컴포넌트명(props){
+
+	return();
+}
+
+자바스크립트 객체형태로 전달
+const props = {속성 : 값}
+const 컴포넌트명 = (props) => {
+	return();
+}
+
+컴포넌트의 사용
+같은파일에 있으면 그냥 사용해도 된다.
+<컴포넌트명 속성=값/>
+
+다른파일에 있다면 export를 해서 내보내기를 우선 한다음에
+사용하려는 쪽에서 import를 해서 사용해야 한다.
+
+JSX문법
+html을 js에 넣어서 사용할 수 있게 만들어주는 문법
+
+const hello = <h1>Hello</h1>
+
+const name = "gildong"
+
+const info = <p>이름 : {name} </p>
+
+
+react는 화면에 나오는 데이터를 state로 관리한다.
+
+useState() 함수를 실행하면 값을 담는 state변수 1개, state의 값을 바꿀 수 있는 함수 1개를 준다.
+
+구조분해할당으로 많이 사용을 한다.
+const [state, setState] = useState(초기값);
+
+값을 변경할 때는 항상 함수를 이용해서 해야한다.
+
+useEffect() 사이드 이펙트를 해결하기 위한 함수
+※사이드 이펙트 : 화면의 렌더링과 관련없는 작업들
+api 호출, 값의 연산, 로그 등등
+
+useEffet(콜백함수, 의존성 배열)
+
+의존성 배열 X : 컴포넌트가 렌더링 될 때마다 콜백함수 실행
+빈 의존성 배열 : 컴포넌트가 최초 1회 렌더링 될 때만 콜백함수 실행
+state를 요소로 갖는 의존성 배열 : state의 값이 바뀔때마다 콜백함수 실행
+
+useEffect(() => {
+
+
+     return() => {} -> 클린업함수(콜백함수 작업이 끝날 때 수행해야 하는 일)
+
+
+},[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
