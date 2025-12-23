@@ -7,26 +7,26 @@ export default function TernaryExample(){
         <div style={styles.page}>
             <h2 style={styles.h2}> 삼항 연산자 예제</h2>
             <div style={styles.card}>
-                {isLogin ? (<LogoutView />) : (<LoginView />)}
+                {isLogin ? (<LogoutView setIsLogin={setIsLogin} />) : (<LoginView setIsLogin={setIsLogin} />)}
             </div>
         </div>
     )
 }
 
-function LogoutView(){
+function LogoutView({setIsLogin}){
     return(
         <div>
             <p style={{marginTop : 0}}>현재 로그아웃 상태이다.</p>
-            <button styles={styles.btn} onClick={() => {}}>로그인</button>
+            <button styles={styles.btn} onClick={() => { setIsLogin(prev => !prev)}}>로그인</button>
         </div>
     )
 }
 
-function LoginView(){
+function LoginView({setIsLogin}){
     return(
         <div>
              <p style={{marginTop : 0}}>현재 로그인 상태이다.</p>
-            <button styles={styles.btn} onClick={() => {}}>로그아웃</button>
+            <button styles={styles.btn} onClick={() => {setIsLogin(prev => !prev)}}>로그아웃</button>
         </div>
     )
 }

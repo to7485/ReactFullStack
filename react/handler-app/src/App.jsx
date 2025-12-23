@@ -5,6 +5,7 @@ import './App.css'
 import HandlerCounter from './components/HandlerCounter'
 import EarlyReturnExample from './components/EarlyReturnExample'
 import TernaryExample from './components/TernaryExample'
+import ListLengthExample from './components/Listlength'
 
 function App() {
   
@@ -18,6 +19,10 @@ function App() {
 
       <Section>
         <TernaryExample />
+      </Section>
+
+      <Section>
+        <ListLengthExample />
       </Section>
     </>
   )
