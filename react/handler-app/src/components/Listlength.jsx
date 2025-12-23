@@ -5,13 +5,20 @@ export default function ListLengthExample(){
     const [text, setText] = useState("");
 
     //할일 추가
+    //{id : Date.now(), title : text.trim()}
     function add(){
+        //input에 내용이 비어있지 않은지 검증
+        if(!text.trim()){
+            return;
+        }
 
+        setItems((prev) => [...prev,{id:Date.now(),title:text.trim()}]);
+        setText("");
     }
 
     //전체삭제
     function clear(){
-
+        setItems([]);
     }
 
     return(
@@ -40,13 +47,13 @@ export default function ListLengthExample(){
     )
 }
 
-function List({item}){
+function List({items}){
     return(
         <div>
             <ul>
-                {item.map((it) => {
-                    <li key={it.id}>{it.title}</li>
-                })}
+                {items.map((item) => (
+                    <li key={item.id}>{item.title}</li>
+                ))}
             </ul>
         </div>
     )

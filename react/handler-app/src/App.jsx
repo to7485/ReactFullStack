@@ -6,7 +6,8 @@ import HandlerCounter from './components/HandlerCounter'
 import EarlyReturnExample from './components/EarlyReturnExample'
 import TernaryExample from './components/TernaryExample'
 import ListLengthExample from './components/Listlength'
-
+import KeyDifferenceDemo from './components/KeyDifferenceDemo'
+import Todo from './components/Todo'
 function App() {
   
 
@@ -23,6 +24,14 @@ function App() {
 
       <Section>
         <ListLengthExample />
+      </Section>
+
+      <Section>
+        <KeyDifferenceDemo />
+      </Section>
+
+      <Section>
+        <Todo />
       </Section>
     </>
   )
